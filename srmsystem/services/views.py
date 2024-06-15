@@ -1,3 +1,59 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
+from django.views.generic import View, CreateView, ListView, DeleteView, DetailView, UpdateView
+from .models import Service
 
-# Create your views here.
+
+class MainPageView(View):
+    """Главная страница сайта"""
+    def get(self, request):
+        return render(request, 'services/main-page.html')
+
+
+class ServicesListView(ListView):
+    """Отображение списка рекламных услуг"""
+
+    template_name = "services/services-list.html"
+    queryset = Service.objects.all()
+    context_object_name = "products"
+
+
+class ServiceCreateView(CreateView):
+    """Создание услуги"""
+
+    model = Service
+    fields = "name", "description", "price"
+    success_url = reverse_lazy("services:services")
+
+    def form_valid(self, form) -> HttpResponseRedirect:
+        form.instance.created_by = self.request.user
+        print(super().form_valid(form))
+        return super().form_valid(form)
+
+
+class ServiceDeleteView(DeleteView):
+    """Удаление услуги"""
+
+    model = Service
+    success_url = reverse_lazy('services:services')
+
+
+class ServiceDetailView(DetailView):
+    """Детальная страница услуги"""
+
+    template_name = "services/service_details.html"
+    queryset = Service.objects.all()
+    context_object_name = "product"
+
+
+class ServiceUpdateView(UpdateView):
+    """Редактирование услуги"""
+
+    model = Service
+    fields = "name", "description", "price"
+    template_name_suffix = "_update_form"
+
+    def get_success_url(self) -> str:
+        return reverse("services:product-detail",
+                       kwargs={"pk": self.object.pk})

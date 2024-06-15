@@ -12,7 +12,7 @@
 7. Устанавливается плагин django-request-logging, заморозить зависимости
 8. В настройках проекта прописываются LOCALE_PATHS, REST_FRAMEWORK, DEFAULTS, SPECTACULAR_SETTINGS, LOGFILE_NAME, LOGFILE_SIZEL, OGFILE_COUNT, LOGGING, LOGIN_REDIRECT_URL, LOGIN_URL
 9. В INSTALLED_APPS добавляются: rest_framework, drf-spectacular, debug_toolbar
-10. Создается приложение services - управление услугами: создание, редактирование и просмотр предоставляемых услуг, прописывается в settings.py и urls.py проекта.
+10. Создается приложение services - управление услугами: создание, редактирование и просмотр предоставляемых услуг, прописывается в settings.py и urls.py проекта. Услуги создает администратор сайтa.
 11. Создается база данных: python manage.py migrate
 12. Создается администратор: python manage.py createsuperuser (задается имя и пароль)
 13. 
