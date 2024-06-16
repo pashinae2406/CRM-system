@@ -7,7 +7,7 @@ class ServicesAdmin(admin.ModelAdmin):
     change_list_template = 'admin/services_changelist.html'
     list_display = "pk", "name", "description", "price"
     list_display_links = "pk", "name"
-    ordering = "pk",
+    ordering = "name",
     fieldsets = [
         (None, {
             "fields": ("name", "description", "price"),
