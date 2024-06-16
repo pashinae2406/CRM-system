@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8121ced5-c1f2-444b-9b64-f010581e61d3" name="Changes" comment="приложение leads - управление потенциальными клиентами">
-      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/admin/contracts_changelist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts_update_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/urls.py" afterDir="false" />
+    <list default="true" id="8121ced5-c1f2-444b-9b64-f010581e61d3" name="Changes" comment="приложение contracts - управление контрактами">
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/templates/admin/customers_changelist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/templates/customers/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/templates/customers/customers-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/templates/customers/customers-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/templates/customers/customers_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/templates/customers/customers_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/templates/customers/customers_update_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/customers/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/READMY.md" beforeDir="false" afterPath="$PROJECT_DIR$/READMY.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srmsystem/srmsystem/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/srmsystem/settings.py" afterDir="false" />
@@ -50,16 +51,16 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Ekaterina/PycharmProjects/CRM-system/srmsystem/contracts/templates/contracts"
+    "last_opened_file_path": "C:/Users/Ekaterina/PycharmProjects/CRM-system/srmsystem/customers/templates/customers"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\customers\templates\customers" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\contracts\templates\contracts" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\leads\templates\leads" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\leads\templates\admin" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\ads\templates\admin" />
-      <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\ads\templates\ads" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -142,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718534251181</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="приложение contracts - управление контрактами">
+      <option name="closed" value="true" />
+      <created>1718542381594</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718542381594</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -153,6 +162,7 @@
     <MESSAGE value="приложение ads - управление рекламными кампаниями" />
     <MESSAGE value="приложение ads - admin панель" />
     <MESSAGE value="приложение leads - управление потенциальными клиентами" />
-    <option name="LAST_COMMIT_MESSAGE" value="приложение leads - управление потенциальными клиентами" />
+    <MESSAGE value="приложение contracts - управление контрактами" />
+    <option name="LAST_COMMIT_MESSAGE" value="приложение contracts - управление контрактами" />
   </component>
 </project>
