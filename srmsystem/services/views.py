@@ -5,12 +5,6 @@ from django.views.generic import View, CreateView, ListView, DeleteView, DetailV
 from .models import Service
 
 
-class MainPageView(View):
-    """Главная страница сайта"""
-    def get(self, request):
-        return render(request, 'services/main-page.html')
-
-
 class ServicesListView(ListView):
     """Отображение списка рекламных услуг"""
 
