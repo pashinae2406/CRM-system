@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'services.apps.ServicesConfig',
     'ads.apps.AdsConfig',
+    'leads.apps.LeadsConfig',
 ]
 
 MIDDLEWARE = [
