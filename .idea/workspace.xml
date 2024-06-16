@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8121ced5-c1f2-444b-9b64-f010581e61d3" name="Changes" comment="приложение ads - admin панель">
-      <change afterPath="$PROJECT_DIR$/srmsystem/leads/templates/admin/leads_changelist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/leads/templates/leads/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/leads/urls.py" afterDir="false" />
+    <list default="true" id="8121ced5-c1f2-444b-9b64-f010581e61d3" name="Changes" comment="приложение leads - управление потенциальными клиентами">
+      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/admin/contracts_changelist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/templates/contracts/contracts_update_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/contracts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/READMY.md" beforeDir="false" afterPath="$PROJECT_DIR$/READMY.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srmsystem/srmsystem/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/srmsystem/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srmsystem/srmsystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/srmsystem/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/leads/leads-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/leads/templates/leads/leads_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/leads/leads-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/leads/templates/leads/leads_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/leads/leads-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/leads/templates/leads/leads-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/leads/leads-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/leads/templates/leads/leads_update_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/leads/leads-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/leads/templates/leads/leads-list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -51,16 +50,16 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Ekaterina/PycharmProjects/CRM-system/srmsystem/leads/templates/leads"
+    "last_opened_file_path": "C:/Users/Ekaterina/PycharmProjects/CRM-system/srmsystem/contracts/templates/contracts"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\contracts\templates\contracts" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\leads\templates\leads" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\leads\templates\admin" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\ads\templates\admin" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\ads\templates\ads" />
-      <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\services\templates\services" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -135,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718529579991</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="приложение leads - управление потенциальными клиентами">
+      <option name="closed" value="true" />
+      <created>1718534251181</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718534251181</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,6 +152,7 @@
     <MESSAGE value="приложение services - управление услугами" />
     <MESSAGE value="приложение ads - управление рекламными кампаниями" />
     <MESSAGE value="приложение ads - admin панель" />
-    <option name="LAST_COMMIT_MESSAGE" value="приложение ads - admin панель" />
+    <MESSAGE value="приложение leads - управление потенциальными клиентами" />
+    <option name="LAST_COMMIT_MESSAGE" value="приложение leads - управление потенциальными клиентами" />
   </component>
 </project>
