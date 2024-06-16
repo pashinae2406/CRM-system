@@ -4,19 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8121ced5-c1f2-444b-9b64-f010581e61d3" name="Changes" comment="приложение services">
-      <change afterPath="$PROJECT_DIR$/srmsystem/services/templates/services/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/services/templates/services/main-page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/services/templates/services/service_confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/services/templates/services/service_details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/services/templates/services/service_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/services/templates/services/service_update_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srmsystem/services/templates/services/services-list.html" afterDir="false" />
+    <list default="true" id="8121ced5-c1f2-444b-9b64-f010581e61d3" name="Changes" comment="приложение services - управление услугами">
+      <change afterPath="$PROJECT_DIR$/srmsystem/ads/templates/ads/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srmsystem/ads/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/READMY.md" beforeDir="false" afterPath="$PROJECT_DIR$/READMY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srmsystem/services/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/services/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/services/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/services/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srmsystem/services/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/services/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/srmsystem/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/srmsystem/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srmsystem/srmsystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/srmsystem/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/ads/ads-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/ads/templates/ads/ads_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/ads/ads-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/ads/templates/ads/ads_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/ads/ads-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/ads/templates/ads/ads-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/ads/ads-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/ads/templates/ads/ads_update_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/ads/ads-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/ads/templates/ads/ads-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/ads/ads-statistic.html" beforeDir="false" afterPath="$PROJECT_DIR$/srmsystem/ads/templates/ads/ads-statistic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/products/products-create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/products/products-delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/products/products-detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/products/products-edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/products/products-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srmsystem/templates_only/static/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -51,11 +59,12 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Ekaterina/PycharmProjects/CRM-system/srmsystem/services/templates/services"
+    "last_opened_file_path": "C:/Users/Ekaterina/PycharmProjects/CRM-system/srmsystem/ads/templates/ads"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\ads\templates\ads" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\services\templates\services" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem" />
       <recent name="C:\Users\Ekaterina\PycharmProjects\CRM-system\srmsystem\accounts\templates\accounts" />
@@ -109,13 +118,22 @@
       <option name="project" value="LOCAL" />
       <updated>1718302021300</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="приложение services - управление услугами">
+      <option name="closed" value="true" />
+      <created>1718478894661</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718478894661</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание проекта" />
     <MESSAGE value="accounts" />
     <MESSAGE value="приложение services" />
-    <option name="LAST_COMMIT_MESSAGE" value="приложение services" />
+    <MESSAGE value="приложение services - управление услугами" />
+    <option name="LAST_COMMIT_MESSAGE" value="приложение services - управление услугами" />
   </component>
 </project>

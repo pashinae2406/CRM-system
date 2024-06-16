@@ -28,7 +28,6 @@ class ServiceCreateView(CreateView):
 
     def form_valid(self, form) -> HttpResponseRedirect:
         form.instance.created_by = self.request.user
-        print(super().form_valid(form))
         return super().form_valid(form)
 
 
