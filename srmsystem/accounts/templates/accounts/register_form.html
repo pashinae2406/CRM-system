@@ -16,6 +16,10 @@
                   {{ form.as_p }}
                   <button type="submit">Зарегистрироваться</button>
                 </form>
+                <br>
+                <div>
+                    <a href="{% url 'accounts:login' %}">Уже есть аккаунт? Войти</a>
+                </div>
             </div>
         </div>
     </div>

@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import View, CreateView
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy
 from .models import Employee
 from django.contrib.auth.models import User
-from .forms import SignInForm
 from leads.models import Leads
 
 
@@ -25,23 +25,20 @@ class RegisterView(CreateView):
         return response
 
 
-class SignInView(CreateView):
-    form_class = SignInForm
-    template_name = 'accounts/login_form.html'
-    success_url = reverse_lazy('accounts:login')
+class SignInView(LoginView):
+    """Вход пользователей, имеющих назначенную администратором роль"""
 
-    def post(self, request, *args, **kwargs):
-        print(self.object)
-        # user = User.objects.get(username=self.request.user.username)
-        response = request
-        # username = user.username
-        # password = user.password
-        # authenticate(self.request, username=username, password=password)
-        # login(request=self.request, user=user)
-        return response
+    template_name = 'accounts/login_form.html'
+    success_url = reverse_lazy('accounts:main-page')
+
+
+class SignUpView(LogoutView):
+    """Выход с сайта"""
+    next_page = reverse_lazy("accounts:register")
 
 
 class MainPageView(View):
+    """Главная страница сайта"""
 
     def get(self, request):
         return render(request, 'accounts/main-page.html')
