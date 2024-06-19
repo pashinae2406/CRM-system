@@ -5,12 +5,12 @@ from .models import Role, Employee
 @admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
     change_list_template = 'admin/role_changelist.html'
-    list_display = 'pk', 'role', 'description'
+    list_display = 'pk', 'role', 'description', 'perms'
     list_display_links = 'pk', 'role'
     ordering = 'pk', 'role',
     fieldsets = [
         (None, {
-            "fields": ('role', 'description'),
+            "fields": ('role', 'description', 'perms'),
         })
     ]
 

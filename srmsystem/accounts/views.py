@@ -2,11 +2,9 @@ from django.shortcuts import render
 from django.views.generic import View, CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
 from .models import Employee
-from django.contrib.auth.models import User
-from leads.models import Leads
 
 
 class RegisterView(CreateView):
