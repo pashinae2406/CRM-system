@@ -1,31 +1,68 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, View
 from .models import Customers
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from leads.models import Leads
+from .forms import CustomerCreateForm, CustomerTransferForm
 
 
 class CustomersListView(ListView):
     """Список активных клиентов"""
 
+    model = Customers
     template_name = 'customers/customers-list.html'
-    queryset = Customers.objects.all()
     context_object_name = 'customers'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        for customer in Customers.objects.all():
+            try:
+                lead = Leads.objects.get(id=customer.lead_id)
+                customer.first_name = lead.first_name
+                customer.last_name = lead.last_name
+                customer.phone = lead.phone
+                customer.email = lead.email
+                customer.ads = lead.ads
+                customer.save()
+                lead.delete()
+            except:
+                continue
+        return context
 
 
 class CustomersCreateView(CreateView):
     """Создание активного клиента"""
 
     model = Customers
-    fields = 'lead', 'contracts'
+    form_class = CustomerCreateForm
     success_url = reverse_lazy('customers:customers')
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
-        # lead = Leads.objects.get(pk=self.object)
-        print("lead: ", self.object, self.model.lead)
         return super().form_valid(form)
+
+
+class CustomersTransferView(CreateView):
+    model = Customers
+    form_class = CustomerTransferForm
+    template_name = 'customers/customers_transfer_form.html'
+    success_url = reverse_lazy('customers:customers')
+
+    def get(self, request, *args, **kwargs):
+        queryset = lead = Leads.objects.get(id=kwargs['pk'])
+        form = CustomerCreateForm()
+        print(form.is_valid())
+        print(form.instance)
+        form.instance.created_by = self.request.user
+        return super().get(request, queryset=queryset, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        print(self)
+        return super().post(request, *args, **kwargs)
 
 
 class CustomersDeleteView(DeleteView):

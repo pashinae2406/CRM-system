@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
 from .models import Leads
+from customers.models import Customers
 
 
 class LeadsListView(ListView):

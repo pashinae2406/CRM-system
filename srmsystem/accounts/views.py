@@ -4,7 +4,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
-from .models import Employee
 
 
 class RegisterView(CreateView):

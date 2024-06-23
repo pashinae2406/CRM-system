@@ -12,7 +12,9 @@
             <li class="list-group-item list-group-item-light d-flex justify-content-between">
                 <a href="/leads/{{ lead.pk }}" class="text-decoration-none link-dark">{{ lead.last_name }} {{ lead.first_name }}</a>
                 <a href="/leads/{{ lead.pk }}/delete" class="btn btn-danger">Удалить</a>
-                <a href="/customers/new" class="btn btn-primary p-2">Перевести в активного клиента</a>
+                {% if perms.customers.view_customers %}
+                    <a href="/customers/new/{{ lead.pk }}" class="btn btn-primary p-2">Перевести в активного клиента</a>
+                {% endif %}
             </li>
             {% endfor %}
         </ul>
