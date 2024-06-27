@@ -4,7 +4,7 @@ from customers.models import Customers
 
 
 def file_contracts_directory_path(instance: "Contracts", filename: str) -> str:
-    return f"files/file_contracts_{instance.pk}/{filename}"
+    return f"files/file_contracts_{instance.customer}/{filename}"
 
 
 class Contracts(models.Model):

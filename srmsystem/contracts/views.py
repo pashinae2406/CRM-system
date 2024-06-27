@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import os
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.urls import reverse, reverse_lazy
@@ -11,6 +12,21 @@ class ContractsListView(ListView):
     template_name: str = 'contracts/contracts-list.html'
     queryset = Contracts.objects.all()
     context_object_name: str = 'contracts'
+
+    def get_context_data(self, *, object_list=None, **kwargs) -> dict:
+        """Удаление неиспользуемых файлов с контрактами"""
+
+        context: dict = super(ContractsListView, self).get_context_data(**kwargs)
+        dir_files: str = os.path.abspath(os.path.join('files'))
+        files: list = [contract.file for contract in Contracts.objects.all()]
+        list_files: list = []
+        for i in os.listdir(dir_files):
+            for file in os.listdir((os.path.join(dir_files, i))):
+                list_files.append(f"files/{i}/{file}")
+        for file in list_files:
+            if file not in files:
+                os.remove(os.path.abspath(os.path.join(file)))
+        return context
 
 
 class ContractsCreateView(CreateView):
