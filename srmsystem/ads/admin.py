@@ -4,11 +4,13 @@ from .models import Ads
 
 @admin.register(Ads)
 class AdsAdmin(admin.ModelAdmin):
-    change_list_template = 'admin/ads_changelist.html'
-    list_display = 'pk', 'name', 'promotion_channel', 'budget'
-    list_display_links = 'pk', 'name'
-    ordering = "name",
-    fieldsets = [
+    """Админ панель рекламных кампаний"""
+
+    change_list_template: str = 'admin/ads_changelist.html'
+    list_display: tuple = 'pk', 'name', 'promotion_channel', 'budget'
+    list_display_links: tuple = 'pk', 'name'
+    ordering: tuple = "name",
+    fieldsets: list = [
         (None, {
             "fields": ("name", "product", "promotion_channel", "budget"),
         })

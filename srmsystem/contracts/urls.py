@@ -5,8 +5,8 @@ from .views import (ContractsListView,
                     ContractsUpdateView,
                     ContractsDeleteView,)
 
-app_name = 'contracts'
-urlpatterns = [
+app_name: str = 'contracts'
+urlpatterns: list = [
     path('contracts/', ContractsListView.as_view(), name='contracts'),
     path('contracts/new/', ContractsCreateView.as_view(), name='contracts-create'),
     path('contracts/<int:pk>/', ContractDetailView.as_view(), name='contracts-detail'),

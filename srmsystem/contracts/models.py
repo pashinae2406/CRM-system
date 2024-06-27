@@ -1,5 +1,6 @@
 from django.db import models
 from services.models import Service
+from customers.models import Customers
 
 
 def file_contracts_directory_path(instance: "Contracts", filename: str) -> str:
@@ -9,6 +10,7 @@ def file_contracts_directory_path(instance: "Contracts", filename: str) -> str:
 class Contracts(models.Model):
     """Модель контракта"""
 
+    customer = models.ForeignKey(Customers, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=50, blank=True)
     product = models.ForeignKey(Service, on_delete=models.CASCADE, blank=True)
     file = models.FileField(blank=True, null=True, upload_to=file_contracts_directory_path)

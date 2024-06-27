@@ -1,35 +1,33 @@
 from django import forms
 from .models import Customers
-from leads.models import Leads
 
 
 class CustomerCreateForm(forms.ModelForm):
+    """Форма создания активного клиента"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['lead'].empty_label = 'Лид не выбран'
-        self.fields['contracts'].empty_label = 'Контракт не выбран'
 
     class Meta:
         model = Customers
-        fields = ['lead', 'contracts']
-        labels = {
+        fields: list = ['lead']
+        labels: dict = {
             'lead': 'Лид',
-            'contracts': 'Контракты'
         }
 
 
 class CustomerTransferForm(forms.ModelChoiceField):
+    """Форма перевода потенциального клиента в активного"""
 
-    try:
-        lead = forms.ModelChoiceField(label='Лид', queryset=Leads.objects.get(id=1))
-    except:
-        print()
+    # try:
+    #     lead = forms.ModelChoiceField(label='Лид', queryset=Leads.objects.get(id=1))
+    # except:
+    #     print()
 
     class Meta:
         model = Customers
-        fields = ['lead', 'contracts']
-        labels = {
+        fields: list = ['lead',]
+        labels: dict = {
             'lead': 'Лид',
-            'contracts': 'Контракты'
         }

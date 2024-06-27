@@ -8,16 +8,16 @@ from .models import Service
 class ServicesListView(ListView):
     """Отображение списка рекламных услуг"""
 
-    template_name = "services/services-list.html"
+    template_name: str = "services/services-list.html"
     queryset = Service.objects.all()
-    context_object_name = "products"
+    context_object_name: str = "products"
 
 
 class ServiceCreateView(CreateView):
     """Создание услуги"""
 
     model = Service
-    fields = "name", "description", "price"
+    fields: tuple = "name", "description", "price"
     success_url = reverse_lazy("services:services")
 
     def form_valid(self, form) -> HttpResponseRedirect:
@@ -35,17 +35,17 @@ class ServiceDeleteView(DeleteView):
 class ServiceDetailView(DetailView):
     """Детальная страница услуги"""
 
-    template_name = "services/service_details.html"
+    template_name: str = "services/service_details.html"
     queryset = Service.objects.all()
-    context_object_name = "product"
+    context_object_name: str = "product"
 
 
 class ServiceUpdateView(UpdateView):
     """Редактирование услуги"""
 
     model = Service
-    fields = "name", "description", "price"
-    template_name_suffix = "_update_form"
+    fields: tuple = "name", "description", "price"
+    template_name_suffix: str = "_update_form"
 
     def get_success_url(self) -> str:
         return reverse("services:product-detail",

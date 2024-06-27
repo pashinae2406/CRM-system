@@ -6,8 +6,8 @@ from .views import (ServiceCreateView,
                     ServiceUpdateView,)
 
 
-app_name = 'services'
-urlpatterns = [
+app_name: str = 'services'
+urlpatterns: list = [
     path("products/", ServicesListView.as_view(), name="services"),
     path('products/new/', ServiceCreateView.as_view(), name="service-create"),
     path('products/<int:pk>/', ServiceDetailView.as_view(), name='product-detail'),

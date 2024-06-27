@@ -18,7 +18,7 @@ class LeadsCreateView(CreateView):
     """Создание потенциального клиента"""
 
     model = Leads
-    fields = "first_name", "last_name", "phone", "email", "ads"
+    fields: tuple = "first_name", "last_name", "phone", "email", "ads"
     success_url = reverse_lazy('leads:leads')
 
     def form_valid(self, form) -> HttpResponseRedirect:
@@ -29,17 +29,17 @@ class LeadsCreateView(CreateView):
 class LeadsDetailView(DetailView):
     """Просмотр детальной страницы потенциального клиента"""
 
-    template_name = "leads/leads-detail.html"
+    template_name: str = "leads/leads-detail.html"
     queryset = Leads.objects.all()
-    context_object_name = 'leads'
+    context_object_name: str = 'leads'
 
 
 class LeadsUpdateView(UpdateView):
     """Редактирование потенциального клиента"""
 
     model = Leads
-    fields = "first_name", "last_name", "phone", "email", "ads"
-    template_name_suffix = '_update_form'
+    fields: tuple = "first_name", "last_name", "phone", "email", "ads"
+    template_name_suffix: str = '_update_form'
 
     def get_success_url(self) -> str:
         return reverse('leads:leads-detail',

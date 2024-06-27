@@ -11,6 +11,7 @@ class Ads(models.Model):
     budget = models.DecimalField(default=0, max_digits=9, decimal_places=2)
     leads_count = models.IntegerField(blank=True, null=True)
     customers_count = models.IntegerField(blank=True, null=True)
+    profit = models.FloatField(blank=True, null=True, default=0)
 
     def __str__(self):
         return self.name

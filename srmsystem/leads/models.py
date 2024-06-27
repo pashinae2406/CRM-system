@@ -3,6 +3,8 @@ from ads.models import Ads
 
 
 class Leads(models.Model):
+    """Модель потенциального клиента"""
+
     first_name = models.CharField(max_length=30, blank=True, null=True)
     last_name = models.CharField(max_length=30, blank=True, null=True)
     phone = models.IntegerField(blank=True, null=True)

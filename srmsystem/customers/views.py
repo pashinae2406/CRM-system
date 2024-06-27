@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, View
 from .models import Customers
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from leads.models import Leads
@@ -14,11 +13,13 @@ class CustomersListView(ListView):
     """Список активных клиентов"""
 
     model = Customers
-    template_name = 'customers/customers-list.html'
-    context_object_name = 'customers'
+    template_name: str = 'customers/customers-list.html'
+    context_object_name: str = 'customers'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get_context_data(self, *, object_list=None, **kwargs) -> dict:
+        """Функция сохранения данных потенциального клиента у активного"""
+
+        context: dict = super().get_context_data(**kwargs)
         for customer in Customers.objects.all():
             try:
                 lead = Leads.objects.get(id=customer.lead_id)
@@ -41,28 +42,34 @@ class CustomersCreateView(CreateView):
     form_class = CustomerCreateForm
     success_url = reverse_lazy('customers:customers')
 
-    def form_valid(self, form):
+    def form_valid(self, form) -> HttpResponseRedirect:
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
 
 class CustomersTransferView(CreateView):
+    """Перевод потенциального клиента в активного"""
+
     model = Customers
-    form_class = CustomerTransferForm
-    template_name = 'customers/customers_transfer_form.html'
+    form_class = CustomerCreateForm
+    template_name: str = 'customers/customers_transfer_form.html'
     success_url = reverse_lazy('customers:customers')
 
-    def get(self, request, *args, **kwargs):
-        queryset = lead = Leads.objects.get(id=kwargs['pk'])
-        form = CustomerCreateForm()
-        print(form.is_valid())
-        print(form.instance)
+    def form_valid(self, form) -> HttpResponseRedirect:
         form.instance.created_by = self.request.user
-        return super().get(request, queryset=queryset, *args, **kwargs)
+        return super().form_valid(form)
 
-    def post(self, request, *args, **kwargs):
-        print(self)
-        return super().post(request, *args, **kwargs)
+    # def get(self, request, *args, **kwargs):
+    #     queryset = Leads.objects.get(id=kwargs['pk'])
+    #     form = CustomerCreateForm()
+    #     print(form.is_valid())
+    #     print(form.instance)
+    #     form.instance.created_by = self.request.user
+    #     return super().get(request, queryset=queryset, *args, **kwargs)
+
+    # def post(self, request, *args, **kwargs):
+    #     print(self)
+    #     return super().post(request, *args, **kwargs)
 
 
 class CustomersDeleteView(DeleteView):
@@ -75,21 +82,18 @@ class CustomersDeleteView(DeleteView):
 class CustomersDetailView(DetailView):
     """Просмотр детальной страницы активного клиента"""
 
-    template_name = 'customers/customers-detail.html'
+    template_name: str = 'customers/customers-detail.html'
     queryset = Customers.objects.all()
-    context_object_name = 'customers'
+    context_object_name: str = 'customers'
 
 
 class CustomersUpdateView(UpdateView):
     """Редактирование активного клиента"""
 
     model = Customers
-    fields = 'lead', 'contracts'
-    template_name_suffix = '_update_form'
+    fields: tuple = 'first_name', 'last_name', 'phone', 'email', 'ads'
+    template_name_suffix: str = '_update_form'
 
-    def get_success_url(self):
+    def get_success_url(self) -> str:
         return reverse('customers:customers-detail',
                        kwargs={"pk": self.object.pk})
-
-
-

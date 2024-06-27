@@ -7,8 +7,8 @@ from .views import (CustomersListView,
                     CustomersUpdateView,)
 
 
-app_name = 'customers'
-urlpatterns = [
+app_name: str = 'customers'
+urlpatterns: list = [
     path('customers/', CustomersListView.as_view(), name='customers'),
     path('customers/new/', CustomersCreateView.as_view(), name='customers-create'),
     path('customers/new/<int:pk>', CustomersTransferView.as_view(), name='customers-transfer'),

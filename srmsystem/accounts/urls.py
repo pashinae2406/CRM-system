@@ -5,8 +5,8 @@ from .views import (RegisterView,
                     MainPageView,)
 
 
-app_name = 'accounts'
-urlpatterns = [
+app_name: str = 'accounts'
+urlpatterns: list = [
     path("", RegisterView.as_view(), name="register"),
     path("login/", SignInView.as_view(), name='login'),
     path("logout/", SignUpView.as_view(), name='logout'),
