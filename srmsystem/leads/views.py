@@ -1,9 +1,8 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
 from .models import Leads
-from customers.models import Customers
+from .forms import LeadsForm
 
 
 class LeadsListView(ListView):
@@ -18,7 +17,7 @@ class LeadsCreateView(CreateView):
     """Создание потенциального клиента"""
 
     model = Leads
-    fields: tuple = "first_name", "last_name", "phone", "email", "ads"
+    form_class = LeadsForm
     success_url = reverse_lazy('leads:leads')
 
     def form_valid(self, form) -> HttpResponseRedirect:
@@ -38,7 +37,7 @@ class LeadsUpdateView(UpdateView):
     """Редактирование потенциального клиента"""
 
     model = Leads
-    fields: tuple = "first_name", "last_name", "phone", "email", "ads"
+    form_class = LeadsForm
     template_name_suffix: str = '_update_form'
 
     def get_success_url(self) -> str:

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Ads
+from .models import Ads, PromotionChannel
 
 
 @admin.register(Ads)
@@ -16,3 +16,17 @@ class AdsAdmin(admin.ModelAdmin):
         })
     ]
 
+
+@admin.register(PromotionChannel)
+class PromotionChannelAdmin(admin.ModelAdmin):
+    """Админ панель канала продвижения"""
+
+    change_list_template: str = 'admin/channel_changelist.html'
+    list_display: tuple = 'pk', 'name'
+    list_display_links: tuple = 'pk', 'name'
+    ordering: tuple = "name",
+    fieldsets: list = [
+        (None, {
+            "fields": ("name",),
+        })
+    ]

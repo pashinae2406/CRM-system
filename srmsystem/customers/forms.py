@@ -17,13 +17,8 @@ class CustomerCreateForm(forms.ModelForm):
         }
 
 
-class CustomerTransferForm(forms.ModelChoiceField):
+class CustomerTransferForm(forms.ModelForm):
     """Форма перевода потенциального клиента в активного"""
-
-    # try:
-    #     lead = forms.ModelChoiceField(label='Лид', queryset=Leads.objects.get(id=1))
-    # except:
-    #     print()
 
     class Meta:
         model = Customers

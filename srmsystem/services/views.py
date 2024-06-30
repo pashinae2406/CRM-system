@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import View, CreateView, ListView, DeleteView, DetailView, UpdateView
 from .models import Service
+from .forms import ServiceForm
 
 
 class ServicesListView(ListView):
@@ -17,7 +18,7 @@ class ServiceCreateView(CreateView):
     """Создание услуги"""
 
     model = Service
-    fields: tuple = "name", "description", "price"
+    form_class = ServiceForm
     success_url = reverse_lazy("services:services")
 
     def form_valid(self, form) -> HttpResponseRedirect:
@@ -44,7 +45,7 @@ class ServiceUpdateView(UpdateView):
     """Редактирование услуги"""
 
     model = Service
-    fields: tuple = "name", "description", "price"
+    form_class = ServiceForm
     template_name_suffix: str = "_update_form"
 
     def get_success_url(self) -> str:
