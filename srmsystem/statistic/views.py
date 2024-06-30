@@ -9,7 +9,8 @@ class StatisticView(ListView):
     """Просмотр общей статистики"""
 
     template_name: str = 'statistic/index.html'
-    queryset: int = len(Ads.objects.all())
+    queryset = len(Ads.objects.all())
+    context_object_name = 'ads'
 
     def get_context_data(self, **kwargs) -> dict:
         """Функция для отображения данных статистики в шаблоне"""

@@ -1,10 +1,7 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, View
 from .models import Customers
-from rest_framework.response import Response
-from rest_framework import status
 from leads.models import Leads
 from .forms import CustomerCreateForm, CustomerTransferForm
 
@@ -51,7 +48,7 @@ class CustomersTransferView(CreateView):
     """Перевод потенциального клиента в активного"""
 
     model = Customers
-    form_class = CustomerCreateForm
+    form_class = CustomerTransferForm
     template_name: str = 'customers/customers_transfer_form.html'
     success_url = reverse_lazy('customers:customers')
 
@@ -59,17 +56,11 @@ class CustomersTransferView(CreateView):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
-    # def get(self, request, *args, **kwargs):
-    #     queryset = Leads.objects.get(id=kwargs['pk'])
-    #     form = CustomerCreateForm()
-    #     print(form.is_valid())
-    #     print(form.instance)
-    #     form.instance.created_by = self.request.user
-    #     return super().get(request, queryset=queryset, *args, **kwargs)
+    def get(self, request, *args, **kwargs):
+        self.initial = {'lead': Leads.objects.get(id=kwargs['pk'])}
+        return super().get(request, *args, **kwargs)
 
-    # def post(self, request, *args, **kwargs):
-    #     print(self)
-    #     return super().post(request, *args, **kwargs)
+
 
 
 class CustomersDeleteView(DeleteView):

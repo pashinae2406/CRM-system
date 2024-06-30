@@ -7,14 +7,14 @@ from django.db.models import Q
 def count_of_leads(ads) -> int:
     """Функция подсчета лидов, узнавших об услуге из данной конкретной рекламной компании"""
 
-    count: int = len(Leads.objects.filter(ads=ads))
+    count: int = len([i for i in Leads.objects.filter(ads=ads)])
     return count
 
 
 def count_of_customers(ads) -> int:
-    """Функция подсчета активных клиенетов, узнавших об услуге из данной конкретной рекламной компании"""
+    """Функция подсчета активных клиенетов, узнавших об услуге из конкретной рекламной компании"""
 
-    count: int = len(Customers.objects.filter(ads=ads))
+    count: int = len([i for i in Customers.objects.filter(ads=ads)])
     return count
 
 

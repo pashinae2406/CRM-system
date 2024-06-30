@@ -1,9 +1,9 @@
-from django.shortcuts import render
 import os
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.urls import reverse, reverse_lazy
 from .models import Contracts
+from .forms import ContractsForm
 
 
 class ContractsListView(ListView):
@@ -33,7 +33,7 @@ class ContractsCreateView(CreateView):
     """Создание контракта"""
 
     model = Contracts
-    fields: tuple = 'customer', 'name', 'product', 'file', 'start_date', 'end_date', 'cost'
+    form_class = ContractsForm
     success_url = reverse_lazy('contracts:contracts')
 
     def form_valid(self, form) -> HttpResponseRedirect:
@@ -53,7 +53,7 @@ class ContractsUpdateView(UpdateView):
     """Редактирование контракта"""
 
     model = Contracts
-    fields: tuple = 'customer', 'name', 'product', 'file', 'start_date', 'end_date', 'cost'
+    form_class = ContractsForm
     template_name_suffix: str = '_update_form'
 
     def get_success_url(self) -> str:

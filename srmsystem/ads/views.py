@@ -4,7 +4,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, DetailView, DeleteView, UpdateView, ListView
 from .models import Ads
 from .commands import count_of_leads, count_of_customers, profit_ads
-from contracts.models import Contracts
+from .forms import AdsForm
 
 
 class AdsListView(ListView):
@@ -30,7 +30,7 @@ class AdsCreateView(CreateView):
     """Создание рекламной кампании"""
 
     model = Ads
-    fields: tuple = 'name', 'product', 'promotion_channel', 'budget'
+    form_class = AdsForm
     success_url = reverse_lazy('ads:ads')
 
     def form_valid(self, form) -> HttpResponseRedirect:
@@ -57,7 +57,7 @@ class AdsUpdateView(UpdateView):
     """Редактирование рекламной кампании"""
 
     model = Ads
-    fields: tuple = 'name', 'product', 'promotion_channel', 'budget'
+    form_class = AdsForm
     template_name_suffix: str = '_update_form'
 
     def get_success_url(self) -> str:
@@ -71,4 +71,3 @@ class AdsStatisticView(ListView):
     template_name: str = 'ads/ads-statistic.html'
     queryset = Ads.objects.all()
     context_object_name: str = 'ads'
-

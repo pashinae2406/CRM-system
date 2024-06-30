@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpRequest
 from django.views.generic import View, CreateView
@@ -39,9 +40,5 @@ class SignUpView(LogoutView):
 class MainPageView(View):
     """Главная страница сайта"""
 
-    def get(self, request) -> HttpRequest:
+    def get(self, request: Any) -> HttpRequest:
         return render(request, 'accounts/main-page.html')
-
-
-
-

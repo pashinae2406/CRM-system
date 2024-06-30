@@ -10,8 +10,9 @@
                 <h5 class="card-title fw-bold">{{ object.last_name }} {{ object.first_name }}</h5>
                 <p class="card-text">{{ object.phone }}</p>
                 <div class="d-flex justify-content-end fw-bold">{{ object.email }}</div>
-                <div class="d-flex justify-content-center fw-bold">
+                <div class="d-flex justify-content-center fw-bold justify-content-between">
                     <a href="/leads/{{ object.pk }}/edit" class="btn btn-primary">Редактировать</a>
+                    <a href="/products/{{ product.pk }}/delete" class="btn btn-danger">Удалить</a>
                 </div>
             </div>
         </div>

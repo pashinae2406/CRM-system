@@ -9,7 +9,7 @@ class ServicesAdmin(admin.ModelAdmin):
     change_list_template: str = 'admin/services_changelist.html'
     list_display: tuple = "pk", "name", "description", "price"
     list_display_links: tuple = "pk", "name"
-    ordering: tuple = "name",
+    ordering: tuple = "name"
     fieldsets: list = [
         (None, {
             "fields": ("name", "description", "price"),
